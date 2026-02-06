@@ -1,8 +1,11 @@
 [build]
 builder = "NIXPACKS"
 # Explicitly install backend deps from subdir
-buildCommand = "python3 -m pip install -r backend/requirements.txt"
+buildCommand = "python -m pip install -r backend/requirements.txt"
+
+[build.env]
+NIXPACKS_PYTHON_VERSION = "3.12"
 
 [deploy]
 # Backend API service
-startCommand = "uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT"
+startCommand = "python -m uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT"
