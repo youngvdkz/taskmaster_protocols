@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Style 3 — Mono/Tech</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap");
+    :root{--bg:#0b0f12;--panel:#10161b;--line:#28323b;--text:#e8eef3;--muted:#8b98a5;--accent:#6ad0ff;--danger:#ff6a6a;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;background:radial-gradient(100% 100% at 20% 0%,#121820 0%,var(--bg) 60%);color:var(--text)}
+    .wrap{max-width:760px;margin:24px auto;padding:0 16px;display:grid;gap:14px}
+    h1{margin:0;font-size:22px;letter-spacing:.5px}
+    .sub{color:var(--muted);font-size:12px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:10px}
+    .input-row{display:grid;grid-template-columns:1fr auto;gap:8px}
+    .input{background:#0c1217;border:1px solid var(--line);padding:10px 12px;border-radius:8px;color:var(--text)}
+    .icon{width:36px;height:36px;border-radius:8px;border:1px solid var(--accent);background:transparent;color:var(--accent)}
+    .badge{border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-size:11px;display:inline-block}
+    .item{display:grid;grid-template-columns:18px 1fr auto auto;gap:8px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:8px}
+    .drag{width:14px;height:14px;border:1px dashed var(--line)}
+    .btn{padding:4px 8px;border-radius:6px;border:1px solid var(--accent);background:transparent;color:var(--accent)}
+    .btn.danger{border-color:var(--danger);color:var(--danger)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div>
+      <h1>Protocols</h1>
+      <div class="sub">Command-like checklist manager</div>
+    </div>
+    <div class="card">
+      <div class="input-row"><input class="input" placeholder="Add a new protocol..."/><button class="icon">+</button></div>
+      <div class="badge">BOT SYNC</div>
+      <div class="item"><div class="drag"></div><div>тест</div><button class="btn">Rename</button><button class="btn danger">Delete</button></div>
+      <div class="item"><div class="drag"></div><div>hjkhkj</div><button class="btn">Rename</button><button class="btn danger">Delete</button></div>
+    </div>
+  </div>
+</body>
+</html>

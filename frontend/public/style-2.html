@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Style 2 — Paper/Editorial</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap");
+    :root{--bg:#0f1012;--card:#15181c;--line:#2a3137;--text:#eef3f6;--muted:#9aa4ad;--accent:#d9b98b;--danger:#f08a8a;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Manrope,system-ui;background:radial-gradient(120% 120% at 20% 0%,#1b2026 0%,var(--bg) 60%);color:var(--text)}
+    .wrap{max-width:760px;margin:24px auto;padding:0 16px;display:grid;gap:16px}
+    h1{margin:0;font-size:28px}
+    .sub{color:var(--muted);font-size:13px}
+    .card{background:linear-gradient(160deg,var(--card),#1a1f24);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+    .input-row{display:grid;grid-template-columns:1fr auto;gap:10px}
+    .input{background:#0e1216;border:1px solid var(--line);padding:10px 12px;border-radius:12px;color:var(--text)}
+    .icon{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:rgba(217,185,139,.18);color:var(--text)}
+    .badge{background:rgba(217,185,139,.18);border-radius:999px;padding:4px 10px;font-size:12px;display:inline-block}
+    .item{display:grid;grid-template-columns:26px 1fr auto auto;gap:8px;align-items:center;background:rgba(12,16,20,.65);border:1px solid var(--line);border-radius:12px;padding:10px}
+    .drag{width:20px;height:20px;border:1px dashed #6b5c4e;border-radius:6px}
+    .btn{padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(217,185,139,.18);color:var(--text)}
+    .btn.danger{border-color:rgba(240,138,138,.45);background:rgba(240,138,138,.18);color:var(--text)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div>
+      <h1>Protocols</h1>
+      <div class="sub">Create checklists for your daily routines.</div>
+    </div>
+    <div class="card">
+      <div class="input-row"><input class="input" placeholder="Add a new protocol..."/><button class="icon">+</button></div>
+      <div class="badge">Synced to bot</div>
+      <div class="item"><div class="drag"></div><div>тест</div><button class="btn">Rename</button><button class="btn danger">Delete</button></div>
+      <div class="item"><div class="drag"></div><div>hjkhkj</div><button class="btn">Rename</button><button class="btn danger">Delete</button></div>
+    </div>
+  </div>
+</body>
+</html>

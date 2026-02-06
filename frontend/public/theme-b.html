@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Theme B</title>
+  <style>
+    :root{
+      --bg:#0c0f12;--panel:#141a1f;--line:#2a3640;--text:#e8eef3;--muted:#94a0aa;
+      --accent:#6ad0ff;--accent2:#ffc46a;--danger:#ff6a6a;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;background:radial-gradient(100% 100% at 20% 0%,#121820 0%,var(--bg) 60%);color:var(--text)}
+    .wrap{max-width:420px;margin:24px auto;padding:0 14px;display:grid;gap:14px}
+    h1{margin:0;font-size:22px;letter-spacing:.5px}
+    .sub{color:var(--muted);font-size:12px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:10px}
+    .row{display:flex;gap:8px;align-items:center}
+    .chip{border:1px solid var(--line);padding:4px 8px;border-radius:6px;font-size:11px}
+    .btn{margin-left:auto;background:transparent;border:1px solid var(--accent);color:var(--accent);padding:6px 10px;border-radius:6px}
+    .item{display:grid;grid-template-columns:18px 1fr auto auto;gap:8px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:8px}
+    .drag{width:14px;height:14px;border:1px dashed var(--line)}
+    .act{border:1px solid var(--accent2);color:var(--accent2);padding:4px 8px;border-radius:6px;background:transparent}
+    .del{border:1px solid var(--danger);color:var(--danger);padding:4px 8px;border-radius:6px;background:transparent}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div>
+      <h1>Protocols</h1>
+      <div class="sub">Command-like checklist manager</div>
+    </div>
+    <div class="panel">
+      <div class="row"><span class="chip">BOT SYNC</span><button class="btn">ADD</button></div>
+      <div class="item"><div class="drag"></div><div>morning::start</div><button class="act">RENAME</button><button class="del">DEL</button></div>
+      <div class="item"><div class="drag"></div><div>gym::pack</div><button class="act">RENAME</button><button class="del">DEL</button></div>
+    </div>
+  </div>
+</body>
+</html>
