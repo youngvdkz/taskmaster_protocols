@@ -1,4 +1,11 @@
-export const API_BASE = import.meta.env.VITE_API_BASE ?? "/api";
+function normalizeApiBase(value: string | undefined): string {
+  if (!value) return "/api";
+  const trimmed = value.trim();
+  const unquoted = trimmed.replace(/^['"]|['"]$/g, "");
+  return unquoted.replace(/\/+$/, "") || "/api";
+}
+
+export const API_BASE = normalizeApiBase(import.meta.env.VITE_API_BASE);
 
 export type Protocol = { id: number; title: string; order_index: number };
 export type Item = { id: number; title: string; order_index: number };
