@@ -4,10 +4,15 @@ from dataclasses import dataclass
 
 
 def _normalize_db_url(url: str) -> str:
+    # Guard against line breaks or whitespace injected by env UIs.
+    url = "".join(url.split())
     if url.startswith("postgres://"):
         url = url.replace("postgres://", "postgresql+asyncpg://", 1)
     if url.startswith("postgresql://"):
         url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+    if "sslmode=" not in url and "railway.app" in url:
+        sep = "&" if "?" in url else "?"
+        url = f"{url}{sep}sslmode=require"
     return url
 
 
