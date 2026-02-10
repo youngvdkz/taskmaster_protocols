@@ -125,8 +125,9 @@ body::before {
 
 .list-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
+  flex-wrap: wrap;
   padding: 10px;
   border-radius: 12px;
   background: rgba(10, 14, 18, 0.55);
@@ -143,6 +144,7 @@ body::before {
   cursor: grab;
   touch-action: none;
   user-select: none;
+  align-self: flex-start;
 }
 
 .title-button {
@@ -152,17 +154,17 @@ body::before {
   font-weight: 600;
   text-align: left;
   cursor: pointer;
-  flex: 1;
+  flex: 1 1 220px;
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .inline-actions {
   display: flex;
   gap: 8px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .icon-action {
@@ -177,6 +179,12 @@ body::before {
   color: var(--text);
   cursor: pointer;
   transition: all 160ms ease;
+}
+
+.icon-action svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .icon-action:hover {
