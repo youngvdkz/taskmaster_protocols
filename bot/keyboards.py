@@ -37,6 +37,6 @@ def main_menu_keyboard(webapp_url: str, user_id: int) -> ReplyKeyboardMarkup:
     webapp_url = _with_user_id(webapp_url, user_id)
     buttons = [
         [KeyboardButton(text="Open Mini App", web_app=WebAppInfo(url=webapp_url))],
-        [KeyboardButton(text="Protocols")],
+        [KeyboardButton(text="/protocols")],
     ]
     return ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
