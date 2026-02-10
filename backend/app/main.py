@@ -8,12 +8,9 @@ app = FastAPI(title="Personal Protocol Manager API", redirect_slashes=False)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://taskmasterprotocols-production-fb71.up.railway.app",
-        "https://taskmasterprotocols-production.up.railway.app",
-        "http://localhost:5173",
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_origin_regex=r".*",
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
