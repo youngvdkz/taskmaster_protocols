@@ -124,10 +124,10 @@ body::before {
 }
 
 .list-item {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
   gap: 10px;
-  flex-wrap: wrap;
   padding: 10px;
   border-radius: 12px;
   background: rgba(10, 14, 18, 0.55);
@@ -154,7 +154,6 @@ body::before {
   font-weight: 600;
   text-align: left;
   cursor: pointer;
-  flex: 1 1 220px;
   min-width: 0;
   white-space: normal;
   word-break: break-word;
@@ -164,7 +163,8 @@ body::before {
   display: flex;
   gap: 8px;
   flex-shrink: 0;
-  margin-left: auto;
+  justify-self: end;
+  align-self: center;
 }
 
 .icon-action {

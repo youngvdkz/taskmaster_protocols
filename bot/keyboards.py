@@ -20,7 +20,8 @@ def protocols_keyboard(protocols: list[tuple[int, str]]) -> InlineKeyboardMarkup
 def items_keyboard(items: list[tuple[int, str, bool]], protocol_id: int) -> InlineKeyboardMarkup:
     buttons = []
     for item_id, title, checked in items:
-        label = f"{title} ✅" if checked else title
+        prefix = "✅" if checked else "\u2800"
+        label = f"{prefix} {title}"
         buttons.append([InlineKeyboardButton(text=label, callback_data=f"t:{protocol_id}:{item_id}")])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
