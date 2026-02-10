@@ -5,7 +5,13 @@ function normalizeApiBase(value: string | undefined): string {
   return unquoted.replace(/\/+$/, "") || "/api";
 }
 
-export const API_BASE = normalizeApiBase(import.meta.env.VITE_API_BASE);
+const baseFromEnv = normalizeApiBase(import.meta.env.VITE_API_BASE);
+const RAILWAY_FALLBACK_API = "https://taskmasterprotocols-production.up.railway.app/api";
+
+export const API_BASE =
+  baseFromEnv === "/api" && window.location.hostname.endsWith(".up.railway.app")
+    ? RAILWAY_FALLBACK_API
+    : baseFromEnv;
 
 export type Protocol = { id: number; title: string; order_index: number };
 export type Item = { id: number; title: string; order_index: number };
