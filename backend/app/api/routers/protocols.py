@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.db import get_session
 from app.services.parser import ProtocolParser
 from app.services.protocols import ProtocolService
-from app.storage.repositories import ItemRepository, ProtocolRepository
+from app.storage.repositories import ItemRepository, ProtocolRepository, UserRepository
 from app.api.routers.items import ItemOut
 
 
@@ -57,15 +57,17 @@ async def create_protocol(payload: ProtocolCreate, session: AsyncSession = Depen
 
 @router.post("/quick-create")
 async def quick_create(payload: QuickCreateRequest, session: AsyncSession = Depends(get_session)) -> QuickCreateResponse:
-    parser = ProtocolParser()
     try:
+        parser = ProtocolParser()
         parsed = await parser.parse_protocol(payload.text)
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=422, detail={"error": str(exc), "text": payload.text}) from exc
 
     protocol_repo = ProtocolRepository(session)
+    user_repo = UserRepository(session)
     item_repo = ItemRepository(session)
 
+    await user_repo.ensure(payload.user_id)
     protocols = await protocol_repo.list(payload.user_id)
     protocol = await protocol_repo.create(payload.user_id, parsed.title, len(protocols))
 
