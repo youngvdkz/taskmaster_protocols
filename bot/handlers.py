@@ -44,6 +44,11 @@ async def protocols_handler(message: Message) -> None:
     await message.answer("Choose a protocol:", reply_markup=protocols_keyboard(data))
 
 
+@router.message(F.text == "Протоколы")
+async def protocols_button_handler(message: Message) -> None:
+    await protocols_handler(message)
+
+
 @router.callback_query(F.data.startswith("p:"))
 async def protocol_selected(call: CallbackQuery) -> None:
     user_id = call.from_user.id

@@ -50,7 +50,7 @@ function SortableRow({
       <button className="drag-handle" {...attributes} {...listeners} aria-label="Drag">
         ::
       </button>
-      <button className="title-button" onClick={() => onOpen(protocol.id)}>
+      <button className="title-button list-title" onClick={() => onOpen(protocol.id)}>
         {protocol.title}
       </button>
       <div className="inline-actions">

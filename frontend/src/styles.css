@@ -134,6 +134,12 @@ body::before {
   border: 1px solid var(--line);
 }
 
+.list-title {
+  width: 100%;
+  display: block;
+  padding: 4px 0;
+}
+
 .drag-handle {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   background: transparent;
