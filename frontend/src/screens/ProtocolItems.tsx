@@ -50,16 +50,27 @@ function SortableRow({
       <span className="title-button">{item.title}</span>
       <div className="inline-actions">
         <button
-          className="button secondary"
+          className="icon-action"
           onClick={() => {
         const next = window.prompt("Rename item", item.title);
         if (next) onRename(item.id, next);
           }}
+          aria-label="Rename item"
         >
-          Rename
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 20h4l11-11-4-4L4 16v4Zm14.7-14.7 1.3-1.3a1 1 0 0 1 1.4 0l1.3 1.3a1 1 0 0 1 0 1.4L21.4 8 18.7 5.3Z"
+              fill="currentColor"
+            />
+          </svg>
         </button>
-        <button className="button danger" onClick={() => onDelete(item.id)}>
-          Delete
+        <button className="icon-action danger" onClick={() => onDelete(item.id)} aria-label="Delete item">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M7 8h2v10H7V8Zm8 0h2v10h-2V8ZM9 4h6l1 2h4v2H4V6h4l1-2Zm-3 6h12l-1 9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2l-1-9Z"
+              fill="currentColor"
+            />
+          </svg>
         </button>
       </div>
     </li>
