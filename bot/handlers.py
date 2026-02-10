@@ -44,7 +44,7 @@ async def protocols_handler(message: Message) -> None:
     await message.answer("Choose a protocol:", reply_markup=protocols_keyboard(data))
 
 
-@router.message(F.text == "Протоколы")
+@router.message(F.text == "Protocols")
 async def protocols_button_handler(message: Message) -> None:
     await protocols_handler(message)
 

@@ -163,6 +163,7 @@ body::before {
   min-width: 0;
   white-space: normal;
   word-break: break-word;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .inline-actions {
