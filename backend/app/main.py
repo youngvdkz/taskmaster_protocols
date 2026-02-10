@@ -1,9 +1,18 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routers import audio, items, protocols
 from app.core.db import Base, engine
 
 app = FastAPI(title="Personal Protocol Manager API", redirect_slashes=False)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(protocols.router, prefix="/api")
 app.include_router(items.router, prefix="/api")
