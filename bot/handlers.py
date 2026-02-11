@@ -63,7 +63,7 @@ async def protocol_selected(call: CallbackQuery) -> None:
     data = [(i.id, i.title, False) for i in items]
     await call.message.delete()
     title = protocol.title if protocol else "Checklist"
-    line = "━" * 34
+    line = "━" * 26
     await call.message.answer(f"{line}\n{title}\n{line}", reply_markup=items_keyboard(data, protocol_id))
 
 
