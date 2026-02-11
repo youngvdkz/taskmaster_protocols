@@ -19,6 +19,12 @@ class ProtocolRepository:
         )
         return result.scalars().all()
 
+    async def get(self, protocol_id: int) -> models.Protocol | None:
+        result = await self.session.execute(
+            select(models.Protocol).where(models.Protocol.id == protocol_id)
+        )
+        return result.scalar_one_or_none()
+
     async def create(self, user_id: int, title: str, order_index: int) -> models.Protocol:
         protocol = models.Protocol(user_id=user_id, title=title, order_index=order_index)
         self.session.add(protocol)

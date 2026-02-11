@@ -56,11 +56,14 @@ async def protocol_selected(call: CallbackQuery) -> None:
     async with AsyncSessionLocal() as session:
         status_service = ItemStatusService(session)
         item_service = ItemService(session)
+        protocol_service = ProtocolService(session)
         await status_service.reset_protocol(user_id, protocol_id)
         items = await item_service.list(protocol_id)
+        protocol = await protocol_service.get(protocol_id)
     data = [(i.id, i.title, False) for i in items]
     await call.message.delete()
-    await call.message.answer("Checklist:", reply_markup=items_keyboard(data, protocol_id))
+    title = protocol.title if protocol else "Checklist"
+    await call.message.answer(title, reply_markup=items_keyboard(data, protocol_id))
 
 
 @router.callback_query(F.data.startswith("t:"))

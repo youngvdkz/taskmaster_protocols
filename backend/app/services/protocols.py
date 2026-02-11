@@ -22,6 +22,9 @@ class ProtocolService:
         await self.session.commit()
         return protocol
 
+    async def get(self, protocol_id: int):
+        return await self.repo.get(protocol_id)
+
     async def rename(self, protocol_id: int, title: str):
         await self.repo.rename(protocol_id, title)
         await self.session.commit()
