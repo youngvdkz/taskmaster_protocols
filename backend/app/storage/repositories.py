@@ -44,6 +44,10 @@ class ItemRepository:
     def __init__(self, session: AsyncSession) -> None:
         self.session = session
 
+    async def get(self, item_id: int) -> models.Item | None:
+        result = await self.session.execute(select(models.Item).where(models.Item.id == item_id))
+        return result.scalar_one_or_none()
+
     async def list(self, protocol_id: int) -> Sequence[models.Item]:
         result = await self.session.execute(
             select(models.Item)
